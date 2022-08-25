@@ -202,7 +202,10 @@ l1_loss=torch.nn.L1Loss(reduction='sum')
 print("Starting optimization:")
 iterations=150001
 
-
+monitor=os.path.join(output_dir,'events/OLAT')
+if not os.path.exists(monitor):
+    os.makedirs(monitor)
+writer = SummaryWriter(log_dir=monitor)
 
 
 
@@ -264,7 +267,8 @@ for it in range(iterations):
     scheduler.step()
     end=time.time()
     print("Loss at iter {}_{}:".format(it,e_index) , Loss.item(),"time:",end-start)
-        
+    
+    writer.add_scalar('Loss/OLAT', Loss.item(), it)    
 
 
         

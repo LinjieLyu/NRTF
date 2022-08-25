@@ -216,7 +216,10 @@ l1_loss=torch.nn.L1Loss(reduction='sum')
 print("Starting optimization:")
 iterations=150001
 
-
+monitor=os.path.join(output_dir,'events/joint')
+if not os.path.exists(monitor):
+    os.makedirs(monitor)
+writer = SummaryWriter(log_dir=monitor)
 
 
 
@@ -320,7 +323,9 @@ for e in range(iterations):
     
     print("Loss at iter {}_{}:".format(e,i) , Loss.item(),rgb_loss.item(),olat_loss.item(),env_loss.item(),"time:",end-start)#
    
- 
+    writer.add_scalar('Loss/rgb', rgb_loss.item(), e)
+    writer.add_scalar('Loss/OLAT', olat_loss.item(), e)
+    writer.add_scalar('Loss/envmap', env_loss.item(), e)
        
     Envmaps.data=Envmaps.data.clamp(0,100) 
     
