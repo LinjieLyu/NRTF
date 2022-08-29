@@ -17,10 +17,12 @@ Pytorch implementation of [Neural Radiance Transfer Fields for Relightable Novel
 
 1. Install [Mitsuba2](https://mitsuba2.readthedocs.io/en/latest/) with gpu_autodiff in variants.
 
-2. Set up environment
+2. Requirement
+
+* python>=3.6 (tested on python=3.8.5)
+* pytorch>=1.6.0
 ```python
-conda env create -f environment.yml
-conda activate NRTF
+pip install tqdm scikit-image opencv-python pandas tensorboard addict imageio imageio-ffmpeg pyquaternion scikit-learn pyyaml seaborn PyMCubes trimesh plyfile redner-gpu
 ```
 3. Install [Blender](https://www.blender.org/) (2.9.2 tested).
 
