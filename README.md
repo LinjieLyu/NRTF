@@ -39,8 +39,8 @@ image/envmap1/
     1.exr
     ...
 mask/
-    0.jpg
-    1.jpg
+    0.png 
+    1.png 
     ...
 envmap/
     test.exr
