@@ -35,7 +35,7 @@ class SceneDataset(torch.utils.data.Dataset):
             for i in range(n_images):
                
                 
-                image_dir = '{}/image/envmap{}/{}.exr'.format(self.instance_dir,e,i)
+                image_dir = '{}/image/envmap{}/{0:03d}.exr'.format(self.instance_dir,e,i)
                 rgb = utils.load_rgb(image_dir,img_res)
             
                           
@@ -49,7 +49,7 @@ class SceneDataset(torch.utils.data.Dataset):
 
         for i in range(n_images):
             
-            mask_dir = '{}/mask/{}.png'.format(self.instance_dir,i)
+            mask_dir = '{}/mask/{0:03d}.png'.format(self.instance_dir,i)
             object_mask = utils.load_mask(mask_dir,img_res)            
             
             object_mask = object_mask.reshape(-1)

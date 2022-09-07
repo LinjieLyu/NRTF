@@ -31,16 +31,16 @@ Mainly camera poses and segmentation masks(optional) are required. The input ima
 
 ```
 image/envmap0/
-    0.exr
-    1.exr
+    000.exr
+    001.exr
     ...
 image/envmap1/
-    0.exr
-    1.exr
+    000.exr
+    001.exr
     ...
 mask/
-    0.png 
-    1.png 
+    000.png 
+    001.png 
     ...
 envmap/
     test.exr
