@@ -17,10 +17,12 @@ Pytorch implementation of [Neural Radiance Transfer Fields for Relightable Novel
 
 1. Install [Mitsuba2](https://mitsuba2.readthedocs.io/en/latest/) with gpu_autodiff in variants.
 
-2. Set up environment
+2. Requirement
+
+* python>=3.6 (tested on python=3.8.5)
+* pytorch>=1.6.0
 ```python
-conda env create -f environment.yml
-conda activate NRTF
+pip install tqdm scikit-image opencv-python pandas tensorboard addict imageio imageio-ffmpeg pyquaternion scikit-learn pyyaml seaborn PyMCubes trimesh plyfile redner-gpu
 ```
 3. Install [Blender](https://www.blender.org/) (2.9.2 tested).
 
@@ -62,7 +64,7 @@ Please refer to blender/camera_poses for more detail on how to output the camera
    We use this [implementation](https://github.com/ventusff/neurecon) of [NeuS](https://arxiv.org/abs/2106.10689). 
 * Clone the [repository](https://github.com/ventusff/neurecon). Prepare your data following their Readme. 
 * The camera parameter format of NeuS is slightly different from ours. You can replace their /dataio/DTU.py with our /NeuS/DTU.py to run their script with our camera parameter format.
-* You should use neus.yaml as the config when running their script. 
+* You should use neus.yaml as the config when running their script. And remember to normalize the mesh inside the unit sphere.
 * Run NeuS with your data, and get the reconstructed mesh.
 * Note that you can raise the marching cube resolution to extract the mesh from SDF with better geometry details.
 
