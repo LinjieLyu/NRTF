@@ -289,7 +289,7 @@ for e in range(iterations):
  
  
     ###### OLAT Loss ######                       
-    e_index=random.randint(0,447)    
+    e_index=random.randint(0,511)    
               
     in_dirs=uni_in_dirs[e_index].view(-1,3)
     in_dir_=embedview(in_dirs)
