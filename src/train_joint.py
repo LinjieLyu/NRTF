@@ -53,11 +53,15 @@ parser.add_argument('--W', type=int, default=800,
 parser.add_argument('--H', type=int, default=600,
                     help='Image height.')
 
+parser.add_argument('--batch_size', type=int, default=3000,
+                    help='Image height.')
+
 args =parser.parse_args()
 
 n_images=args.n_images
 H=args.H
 W=args.W
+batch_size=args.batch_size
 
 scene_dir=os.path.join(args.data_dir,args.scene)
 output_dir=os.path.join(args.output_dir,args.scene)
@@ -196,7 +200,8 @@ class MultipleScheduler(object):
 
             
 optimizer = MultipleOptimizer([torch.optim.SparseAdam(embedding_params,lr=lrate, betas=(0.9, 0.99), eps= 1e-15),
-                                           torch.optim.Adam(grad_vars,lr=lrate, betas=(0.9, 0.99), eps= 1e-15)])
+                                           torch.optim.Adam(grad_vars,lr=lrate, betas=(0.9, 0.99), eps= 1e-15),
+                                           torch.optim.Adam([Envmaps], lr=2e-4)])
 
 scheduler=MultipleScheduler(optimizer, 30000, gamma=0.33)
 
@@ -255,7 +260,7 @@ for e in range(iterations):
     
     out_dirs_ = embedview(out_dirs)   
     
-    indices = torch.split(torch.randperm(len(points)),3000)
+    indices = torch.split(torch.randperm(len(points)),batch_size)
     
 
 
