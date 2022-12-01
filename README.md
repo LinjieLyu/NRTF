@@ -1,6 +1,6 @@
 # Neural Radiance Transfer Fields
 
-Pytorch implementation of [Neural Radiance Transfer Fields for Relightable Novel-view Synthesis with Global Illumination](https://people.mpi-inf.mpg.de/~llyu/projects/2022-NRTF/index.htm).
+Pytorch implementation of [Neural Radiance Transfer Fields for Relightable Novel-view Synthesis with Global Illumination](https://people.mpi-inf.mpg.de/~mhaberma/projects/2022-NRTF/index.htm).
 
 [Linjie Lyu](https://people.mpi-inf.mpg.de/~llyu/)<sup>1</sup>,
  [Ayush Tewari](https://ayushtewari.com/)<sup>2</sup>,
