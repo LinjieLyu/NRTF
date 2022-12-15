@@ -201,7 +201,7 @@ class MultipleScheduler(object):
             
 optimizer = MultipleOptimizer([torch.optim.SparseAdam(embedding_params,lr=lrate, betas=(0.9, 0.99), eps= 1e-15),
                                            torch.optim.Adam(grad_vars,lr=lrate, betas=(0.9, 0.99), eps= 1e-15),
-                                           torch.optim.Adam([Envmaps], lr=2e-4)])
+                                           torch.optim.Adam([Envmaps], lr=2e-3)])
 
 scheduler=MultipleScheduler(optimizer, 30000, gamma=0.33)
 
